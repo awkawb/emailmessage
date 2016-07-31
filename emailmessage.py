@@ -45,7 +45,10 @@ class EmailMessage:
         for h,v in header.items():
             mesg.add_header(h, v)
 
-        mesg.set_payload(body)
+        try:
+            mesg.set_payload(body.read())
+        except AttributeError:
+            mesg.set_payload(body)
 
         return mesg
 
