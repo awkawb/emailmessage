@@ -3,12 +3,13 @@
 class EmailMessage:
     """ Configure an email message/server to send an email.
 
-    Usage
-    =====
-        mesg = EmailMessage("sender@mail.com", "receiver@mail.com",
-            "Subject Line", "Email Body", "gmail")
-        mesg.login("mypassword")
-        mesg.send()
+    API Usage
+    =========
+        >>> from emailmessage import EmailMessage
+        >>> mesg = EmailMessage("sender@mail.com", "receiver@mail.com",
+        ...     "Subject Line", "Email Body", "gmail")
+        >>> mesg.login("mypassword")
+        >>> mesg.send()
     """
 
     def __init__(self, from_addr="", to_addr="", subj="", body="",
@@ -41,10 +42,10 @@ class EmailMessage:
         from email.message import Message
 
         mesg = Message()
-        for h,v in self.mesg_header.items():
+        for h,v in header.items():
             mesg.add_header(h, v)
 
-        mesg.set_payload(self.mesg_body)
+        mesg.set_payload(body)
 
         return mesg
 
