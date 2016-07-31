@@ -1,2 +1,2 @@
-# emailmessage
-A python module to simply create and send email message.
+# Description
+This package is a simple way to create and send email messages.
